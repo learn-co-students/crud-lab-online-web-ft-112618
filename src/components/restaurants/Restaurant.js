@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
 import ReviewsContainer from '../../containers/ReviewsContainer'
+import { connect } from 'react-redux'
+import deleteRestaurant from '../../actions/deleteRestaurant'
 
 class Restaurant extends Component {
 
+  handleDelete = event => {
+    event.preventDefault();
+    this.props.deleteRestaurant(this.props.restaurant.id)
+  }
 
   render() {
     const { restaurant } = this.props;
+
 
     return (
       <div>
         <li>
           {restaurant.text}
-          <button> X </button>
+          <button onClick={this.handleDelete}> X </button>
           <ReviewsContainer restaurant={restaurant}/>
         </li>
       </div>
@@ -19,4 +26,4 @@ class Restaurant extends Component {
   }
 };
 
-export default Restaurant;
+export default connect(null, { deleteRestaurant })(Restaurant);

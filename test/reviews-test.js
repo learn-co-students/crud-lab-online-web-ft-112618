@@ -82,7 +82,6 @@ describe('ReviewInput Component', () => {
     const wrapper = mount(<Provider store={store}><App /></Provider>);
 
     let review = wrapper.find(ReviewInput);
-
     expect(review.props().restaurantId).to.equal(store.getState().restaurants[0].id);
   });
 
@@ -117,8 +116,8 @@ describe('Reviews Component', () => {
     const store = createStore(manageRestaurant);
     store.dispatch({type: 'ADD_RESTAURANT', text: 'LoKi'})
     let restaurantId = store.getState().restaurants[0].id
-    store.dispatch({ type: 'ADD_REVIEW', review: { text: "Was great", restaurantId } })
-    store.dispatch({ type: 'ADD_REVIEW', review: { text: "Was not great", restaurantId } })
+    store.dispatch({ type: 'ADD_REVIEW', review: { text: "Was great", restaurantId: restaurantId } })
+    store.dispatch({ type: 'ADD_REVIEW', review: { text: "Was not great", restaurantId: restaurantId } })
     const wrapper = mount(<Provider store={store}><App /></Provider>);
 
 

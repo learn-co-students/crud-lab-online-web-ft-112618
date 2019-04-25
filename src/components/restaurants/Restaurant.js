@@ -26,4 +26,4 @@ class Restaurant extends Component {
   }
 };
 
-export default connect(null, { deleteRestaurant })(Restaurant);
+export default Restaurant;

@@ -3,7 +3,7 @@ import ReviewsContainer from '../../containers/ReviewsContainer'
 
 class Restaurant extends Component {
 
-
+debugger
   render() {
     const { restaurant } = this.props;
 
@@ -11,7 +11,7 @@ class Restaurant extends Component {
       <div>
         <li>
           {restaurant.text}
-          <button> X </button>
+          <button onClick={() => this.props.deleteRestaurant(restaurant)}>DELETE</button>
           <ReviewsContainer restaurant={restaurant}/>
         </li>
       </div>
